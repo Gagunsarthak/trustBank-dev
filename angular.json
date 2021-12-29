@@ -1,0 +1,297 @@
+{
+  "version": 1,
+  "projects": {
+    "home": {
+      "projectType": "application",
+      "root": "apps/home",
+      "sourceRoot": "apps/home/src",
+      "prefix": "nx-micro-frontend-trust-bank",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:webpack-browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/home",
+            "index": "apps/home/src/index.html",
+            "main": "apps/home/src/main.ts",
+            "polyfills": "apps/home/src/polyfills.ts",
+            "tsConfig": "apps/home/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/home/src/favicon.ico",
+              "apps/home/src/assets"
+            ],
+            "styles": [
+              "apps/home/src/styles.scss"
+            ],
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "apps/home/webpack.config.js"
+            },
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/home/src/environments/environment.ts",
+                  "with": "apps/home/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "customWebpackConfig": {
+                "path": "apps/home/webpack.prod.config.js"
+              }
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@nrwl/angular:webpack-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "home:build:production"
+            },
+            "development": {
+              "browserTarget": "home:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4200,
+            "publicHost": "http://localhost:4200"
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "home:build",
+            "extraWebpackConfig": "apps/home/webpack.config.js"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/home/src/**/*.ts",
+              "apps/home/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/home"
+          ],
+          "options": {
+            "jestConfig": "apps/home/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "home-e2e": {
+      "root": "apps/home-e2e",
+      "sourceRoot": "apps/home-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/home-e2e/cypress.json",
+            "devServerTarget": "home:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "home:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/home-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": [
+        "home"
+      ]
+    },
+    "search": {
+      "projectType": "application",
+      "root": "apps/search",
+      "sourceRoot": "apps/search/src",
+      "prefix": "nx-micro-frontend-trust-bank",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:webpack-browser",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/search",
+            "index": "apps/search/src/index.html",
+            "main": "apps/search/src/main.ts",
+            "polyfills": "apps/search/src/polyfills.ts",
+            "tsConfig": "apps/search/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/search/src/favicon.ico",
+              "apps/search/src/assets"
+            ],
+            "styles": [
+              "apps/search/src/styles.scss"
+            ],
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "apps/search/webpack.config.js"
+            },
+            "commonChunk": false
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/search/src/environments/environment.ts",
+                  "with": "apps/search/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all",
+              "customWebpackConfig": {
+                "path": "apps/search/webpack.prod.config.js"
+              }
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@nrwl/angular:webpack-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "search:build:production"
+            },
+            "development": {
+              "browserTarget": "search:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4201,
+            "publicHost": "http://localhost:4201"
+          }
+        },
+        "extract-i18n": {
+          "builder": "ngx-build-plus:extract-i18n",
+          "options": {
+            "browserTarget": "search:build",
+            "extraWebpackConfig": "apps/search/webpack.config.js"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/search/src/**/*.ts",
+              "apps/search/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/search"
+          ],
+          "options": {
+            "jestConfig": "apps/search/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "search-e2e": {
+      "root": "apps/search-e2e",
+      "sourceRoot": "apps/search-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/search-e2e/cypress.json",
+            "devServerTarget": "search:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "search:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "apps/search-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": [
+        "search"
+      ]
+    }
+  }
+}
