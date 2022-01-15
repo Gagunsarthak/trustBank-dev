@@ -8,10 +8,8 @@
       "prefix": "nx-micro-frontend-trust-bank",
       "architect": {
         "build": {
-          "builder": "@nrwl/angular:webpack-browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/home",
             "index": "apps/home/src/index.html",
@@ -19,13 +17,8 @@
             "polyfills": "apps/home/src/polyfills.ts",
             "tsConfig": "apps/home/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/home/src/favicon.ico",
-              "apps/home/src/assets"
-            ],
-            "styles": [
-              "apps/home/src/styles.scss"
-            ],
+            "assets": ["apps/home/src/favicon.ico", "apps/home/src/assets"],
+            "styles": ["apps/home/src/styles.scss"],
             "scripts": [],
             "customWebpackConfig": {
               "path": "apps/home/webpack.config.js"
@@ -102,9 +95,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/home"
-          ],
+          "outputs": ["coverage/apps/home"],
           "options": {
             "jestConfig": "apps/home/jest.config.js",
             "passWithNoTests": true
@@ -132,20 +123,40 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/home-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/home-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "home"
-      ]
+      "implicitDependencies": ["home"]
+    },
+    "my-lib": {
+      "projectType": "library",
+      "root": "libs/my-lib",
+      "sourceRoot": "libs/my-lib/src",
+      "prefix": "nx-micro-frontend-trust-bank",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/my-lib"],
+          "options": {
+            "jestConfig": "libs/my-lib/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/my-lib/src/**/*.ts",
+              "libs/my-lib/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
     },
     "search": {
       "projectType": "application",
@@ -155,9 +166,7 @@
       "architect": {
         "build": {
           "builder": "@nrwl/angular:webpack-browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/search",
             "index": "apps/search/src/index.html",
@@ -165,13 +174,8 @@
             "polyfills": "apps/search/src/polyfills.ts",
             "tsConfig": "apps/search/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/search/src/favicon.ico",
-              "apps/search/src/assets"
-            ],
-            "styles": [
-              "apps/search/src/styles.scss"
-            ],
+            "assets": ["apps/search/src/favicon.ico", "apps/search/src/assets"],
+            "styles": ["apps/search/src/styles.scss"],
             "scripts": [],
             "customWebpackConfig": {
               "path": "apps/search/webpack.config.js"
@@ -248,9 +252,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/search"
-          ],
+          "outputs": ["coverage/apps/search"],
           "options": {
             "jestConfig": "apps/search/jest.config.js",
             "passWithNoTests": true
@@ -278,20 +280,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/search-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/search-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "search"
-      ]
+      "implicitDependencies": ["search"]
     }
   }
 }
