@@ -4,8 +4,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule,NoopAnimationsModule  } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule} from '@angular/forms';
@@ -26,8 +27,10 @@ import {TopNavBarModule} from 'libs/my-lib/src/lib/top-nav-bar/top-nav-bar.modul
     MatSidenavModule,
     TopNavBarModule,
     MatButtonModule,
+    MatCardModule,
     MatIconModule,
     MatCheckboxModule,
+    NoopAnimationsModule ,
     MatDividerModule,
   ],
   providers: [],

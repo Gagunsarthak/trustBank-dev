@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TopNavBarComponent } from './top-nav-bar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import {MatIconModule} from '@angular/material/icon';
   imports: [
     CommonModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatBadgeModule
 
   ],
   exports:[TopNavBarComponent]
