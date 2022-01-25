@@ -1,4 +1,5 @@
 
+
 <nx-micro-frontend-trust-bank-top-nav-bar></nx-micro-frontend-trust-bank-top-nav-bar>
 <!-- <h1 class="text-3xl font-bold underline italic">
     Hello world!
@@ -56,7 +57,7 @@ New Code -->
   id="sidenavContainer"
  fullscreen>
   <mat-sidenav
-    mode="side"
+    mode="over"
     #sidenav
     id="sidenav"
     [class.menu-open]="isMenuOpen"
@@ -106,12 +107,18 @@ New Code -->
   <mat-sidenav-content
   [ngStyle]="{ 'margin-left.px': contentMargin }"
   >
+ 
     <mat-selection-list class="dash-list">
       <h3>TO DO</h3>
       <mat-list-option *ngFor="let todo of task">
         {{todo}}
       </mat-list-option>
     </mat-selection-list> 
+    <!-- <nx-micro-frontend-trust-bank-bottom-nav-bar></nx-micro-frontend-trust-bank-bottom-nav-bar> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
+<div *ngIf="isMobileView">
+<nx-micro-frontend-trust-bank-bottom-nav-bar></nx-micro-frontend-trust-bank-bottom-nav-bar>
+
+</div>
 <!-- <router-outlet></router-outlet> -->

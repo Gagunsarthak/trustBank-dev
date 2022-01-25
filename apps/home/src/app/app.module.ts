@@ -15,7 +15,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
-import {TopNavBarModule} from 'libs/my-lib/src/lib/top-nav-bar/top-nav-bar.module'
+import {TopNavBarModule} from 'libs/my-lib/src/lib/widgets/top-nav-bar/top-nav-bar.module'
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import {BottomNavBarModule} from 'libs/my-lib/src/lib/widgets/bottom-nav-bar/bottom-nav-bar.module'
 // E:\newCloneTrust\trustBank-dev\libs\my-lib\src\lib\top-nav-bar\top-nav-bar.module.ts
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent,],
@@ -31,6 +33,7 @@ import {TopNavBarModule} from 'libs/my-lib/src/lib/top-nav-bar/top-nav-bar.modul
     MatIconModule,
     MatCheckboxModule,
     NoopAnimationsModule ,
+    BottomNavBarModule,
     MatDividerModule,
   ],
   providers: [],
