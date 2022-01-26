@@ -1,124 +1,273 @@
 
 
 <nx-micro-frontend-trust-bank-top-nav-bar></nx-micro-frontend-trust-bank-top-nav-bar>
-<!-- <h1 class="text-3xl font-bold underline italic">
-    Hello world!
-  </h1> -->
-  <!-- <mat-slider min="1" max="100" step="1" value="50"></mat-slider> -->
 
 
-
-<!-- 
-<mat-sidenav-container class="example-container" >
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
-               (closed)="events.push('close!')">
-    Sidenav content
-    
-    <mat-nav-list>
-
-      <a mat-list-item > Accounts </a>
-      <a mat-list-item > Create Account </a>
-      <a mat-list-item > Contacts </a>
-      <a mat-list-item > Create Contact </a>
-      <a mat-list-item> Activities </a>
-      <a mat-list-item> Create Activity </a>
-      <a mat-list-item (click)="sidenav.toggle()"  mat-list-item>Close</a>
-
-    </mat-nav-list>
-  </mat-sidenav>
-
-  <mat-sidenav-content fullscreen>
-    
-    <p><button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button></p>
-    <p>Events:</p>
-    <div class="example-events">
-      <div *ngFor="let e of events">{{e}}</div>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container> -->
-
-<!-- 
-New Code -->
-<!-- <mat-toolbar id="mainToolbar" color="primary">
-  <mat-icon
-    (click)="onToolbarMenuToggle()"
-    id="toolbarMenu">subject</mat-icon>
-  My Awesome App
-  <span class="toolbar-spacer"></span>
-  <mat-icon
-    class="toolbar-icon"
-    matBadge="8"
-    matBadgePosition="after"
-    matBadgeColor="accent"
-  >notifications</mat-icon>
+<!-- <mat-toolbar>
+  <button mat-icon-button  (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">
+        menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+        close
+    </mat-icon>
+</button>
+Responsive side navigation
 </mat-toolbar> -->
 
-<mat-sidenav-container
-  id="sidenavContainer"
- fullscreen>
-  <mat-sidenav
-    mode="over"
-    #sidenav
-    id="sidenav"
-    [class.menu-open]="isMenuOpen"
-    [class.menu-close]="!isMenuOpen"
-    opened>
-    <mat-icon
-    (click)="onToolbarMenuToggle()"
-    id="toolbarMenu">subject</mat-icon>
-    <mat-list id="menus" >
-      <mat-card>
-        <mat-card-header>
-          <div 
-            mat-card-avatar 
-            class="avatar"></div>
+<mat-sidenav-container>
 
-          <mat-card-title>John Doe</mat-card-title>
-          <mat-card-subtitle>Internal</mat-card-subtitle>
-        </mat-card-header>
-      </mat-card>
-      <mat-list-item>
-        <button 
-        class="menu-item"
-          mat-flat-button>
-          <mat-icon>dashboard</mat-icon>
-        Dashboard</button>
-      </mat-list-item>
+  <mat-sidenav class="mat-elevation-z8" #sidenav="matSidenav" >
+    <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
 
-      <mat-list-item>
-          <button 
-          class="menu-item"
-            mat-flat-button>
-            <mat-icon>work</mat-icon>
-          Project</button>
-        </mat-list-item>
+<h4 class="name">John Smith</h4>
+<p class="designation">Software Engineer</p>
 
-        <mat-list-item>
-            <button 
-            class="menu-item"
-              mat-flat-button>
-              <mat-icon>settings_application</mat-icon>
-            Settings</button>
-          </mat-list-item>
+<mat-divider></mat-divider>
+    <button mat-button class="menu-button">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+    <button mat-button class="menu-button">
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+    </button>
+    <button mat-button class="menu-button">
+        <mat-icon>info</mat-icon>
+        <span>About</span>
+    </button>
 
-    </mat-list>
-  </mat-sidenav>
+    <mat-divider></mat-divider>
 
-  <mat-sidenav-content
-  [ngStyle]="{ 'margin-left.px': contentMargin }"
-  >
- 
-    <mat-selection-list class="dash-list">
-      <h3>TO DO</h3>
-      <mat-list-option *ngFor="let todo of task">
-        {{todo}}
-      </mat-list-option>
-    </mat-selection-list> 
-    <!-- <nx-micro-frontend-trust-bank-bottom-nav-bar></nx-micro-frontend-trust-bank-bottom-nav-bar> -->
-  </mat-sidenav-content>
+    <button mat-button class="menu-button">
+        <mat-icon>help</mat-icon>
+        <span>Help</span>
+    </button>
+
+</mat-sidenav>
+    <mat-sidenav-content>
+      <button mat-icon-button  (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <div class="flex flex-wrap -mx-2 mb-8" *ngIf="!isMobileView">
+        <div class="w-full md:w-1/4 lg:w-1/4 px-2 mb-4">
+           <div class="border text-sm text-grey-dark flex items-center justify-center">
+            <!-- <p>full / half / quarter</p> -->
+            <div class="container flex flex-wrap mx-auto">
+                <div class="w-full p-2 rounded ">
+                    <div class="bg-white font-semibold text-center rounded-3xl border shadow-lg p-10">
+                        <img class="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="product designer">
+                        <h1 class="text-lg text-gray-700"> John Doe </h1>
+                        <h3 class="text-sm text-gray-400 "> Creative Director </h3>
+                        <p class="text-xs text-gray-400 mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                        <button class="bg-indigo-600 px-8 py-2 mt-8 rounded-3xl text-gray-100 font-semibold uppercase tracking-wide">Hire Me</button>
+                      </div>
+                </div>
+                
+                <div class="w-full p-2 rounded ">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                        alt="image">
+                </div>
+                <div class="w-full p-2 rounded ">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                        alt="image">
+                </div>
+                <div class="w-full p-2 rounded ">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                        alt="image">
+                </div>
+               
+            </div>
+           
+              <!-- <mat-card>
+             
+                    <div class="bg-white font-semibold text-center rounded-3xl border shadow-lg p-10 max-w-xs">
+                      <img class="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="product designer">
+                      <h1 class="text-lg text-gray-700"> John Doe </h1>
+                      <h3 class="text-sm text-gray-400 "> Creative Director </h3>
+                      <p class="text-xs text-gray-400 mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                      <button class="bg-indigo-600 px-8 py-2 mt-8 rounded-3xl text-gray-100 font-semibold uppercase tracking-wide">Hire Me</button>
+                    </div>
+                  
+              </mat-card> -->
+           
+           </div>
+        </div>
+        <div class="w-full md:w-1/2 lg:w-1/2 px-2">
+            <div class="border  text-sm text-grey-dark flex items-center justify-center">
+               <!-- <p>full / half</p> -->
+               <div class="border text-sm text-grey-dark flex items-center justify-center">
+                <!-- <p>full / half / quarter</p> -->
+                <div class="container flex flex-wrap mx-auto">
+                    <div class="w-full p-2 rounded ">
+                        <div class="bg-white font-semibold text-center rounded-3xl border shadow-lg p-10">
+                            <img class="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="product designer">
+                            <h1 class="text-lg text-gray-700"> John Doe </h1>
+                            <h3 class="text-sm text-gray-400 "> Creative Director </h3>
+                            <p class="text-xs text-gray-400 mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                            <button class="bg-indigo-600 px-8 py-2 mt-8 rounded-3xl text-gray-100 font-semibold uppercase tracking-wide">Hire Me</button>
+                          </div>
+                    </div>
+                    
+                    <div class="w-full p-2 rounded ">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                            alt="image">
+                    </div>
+                    <div class="w-full p-2 rounded ">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                            alt="image">
+                    </div>
+                    <div class="w-full p-2 rounded ">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                            alt="image">
+                    </div>
+                   
+                </div>
+               
+                  <!-- <mat-card>
+                 
+                        <div class="bg-white font-semibold text-center rounded-3xl border shadow-lg p-10 max-w-xs">
+                          <img class="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="product designer">
+                          <h1 class="text-lg text-gray-700"> John Doe </h1>
+                          <h3 class="text-sm text-gray-400 "> Creative Director </h3>
+                          <p class="text-xs text-gray-400 mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                          <button class="bg-indigo-600 px-8 py-2 mt-8 rounded-3xl text-gray-100 font-semibold uppercase tracking-wide">Hire Me</button>
+                        </div>
+                      
+                  </mat-card> -->
+               
+               </div>
+            </div>
+         </div>
+        <div class="w-full md:w-1/4 lg:w-1/4 px-2 mb-4">
+           <div class="border  text-sm text-grey-dark flex items-center justify-center">
+              <p>full / half / quarter</p>
+           </div>
+        </div>
+       
+     </div>
+   <!-- Code for mobile view -->
+   <div class="flex flex-wrap -mx-2 mb-8" *ngIf="isMobileView">
+    <div class="w-full md:w-1/4 lg:w-1/4 px-2 mb-4">
+        <div class="w-full md:w-1/2 lg:w-1/2 px-2">
+            <div class="border  text-sm text-grey-dark flex items-center justify-center">
+                <div class="border text-sm text-grey-dark flex items-center justify-center">
+                    <!-- <p>full / half / quarter</p> -->
+                    <div class="container flex flex-wrap mx-auto">
+                        <!-- Centre Div for main posts -->
+                        <div class="w-full p-2 rounded " *ngIf="!isMobileView">
+                            <div class="bg-white font-semibold text-center rounded-3xl border shadow-lg p-10">
+                                <img class="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="product designer">
+                                <h1 class="text-lg text-gray-700"> John Doe </h1>
+                                <h3 class="text-sm text-gray-400 "> Creative Director </h3>
+                                <p class="text-xs text-gray-400 mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <button class="bg-indigo-600 px-8 py-2 mt-8 rounded-3xl text-gray-100 font-semibold uppercase tracking-wide">Hire Me</button>
+                              </div>
+                        </div>
+                        
+                        <div class="w-full p-2 rounded ">
+                            <img src="https://ico.org.uk/media/4017813/childrens-code-website-blue.jpg"
+                                alt="image">
+                        </div>
+                        <div class="w-full p-2 rounded ">
+                            <img src="https://c4.wallpaperflare.com/wallpaper/923/289/124/java-programmer-coder-by-pcbots-wallpaper-preview.jpg"
+                                alt="image">
+                        </div>
+                        <div class="w-full p-2 rounded ">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                                alt="image">
+                        </div>
+                       
+                    </div>
+                   
+                      <!-- <mat-card>
+                     
+                            <div class="bg-white font-semibold text-center rounded-3xl border shadow-lg p-10 max-w-xs">
+                              <img class="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="product designer">
+                              <h1 class="text-lg text-gray-700"> John Doe </h1>
+                              <h3 class="text-sm text-gray-400 "> Creative Director </h3>
+                              <p class="text-xs text-gray-400 mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                              <button class="bg-indigo-600 px-8 py-2 mt-8 rounded-3xl text-gray-100 font-semibold uppercase tracking-wide">Hire Me</button>
+                            </div>
+                          
+                      </mat-card> -->
+                   
+                   </div>
+            </div>
+         </div>
+       <div class="border text-sm text-grey-dark flex items-center justify-center">
+        <!-- <p>full / half / quarter</p> -->
+        <div class="container flex flex-wrap mx-auto">
+            <div class="w-full p-2 rounded ">
+                <div class="bg-white font-semibold text-center rounded-3xl border shadow-lg p-10">
+                    <img class="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="product designer">
+                    <h1 class="text-lg text-gray-700"> John Doe </h1>
+                    <h3 class="text-sm text-gray-400 "> Creative Director </h3>
+                    <p class="text-xs text-gray-400 mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <button class="bg-indigo-600 px-8 py-2 mt-8 rounded-3xl text-gray-100 font-semibold uppercase tracking-wide">Hire Me</button>
+                  </div>
+            </div>
+            
+            <div class="w-full p-2 rounded ">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                    alt="image">
+            </div>
+            <div class="w-full p-2 rounded ">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                    alt="image">
+            </div>
+            <div class="w-full p-2 rounded ">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
+                    alt="image">
+            </div>
+           
+        </div>
+       
+          <!-- <mat-card>
+         
+                <div class="bg-white font-semibold text-center rounded-3xl border shadow-lg p-10 max-w-xs">
+                  <img class="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="product designer">
+                  <h1 class="text-lg text-gray-700"> John Doe </h1>
+                  <h3 class="text-sm text-gray-400 "> Creative Director </h3>
+                  <p class="text-xs text-gray-400 mt-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                  <button class="bg-indigo-600 px-8 py-2 mt-8 rounded-3xl text-gray-100 font-semibold uppercase tracking-wide">Hire Me</button>
+                </div>
+              
+          </mat-card> -->
+       
+       </div>
+    </div>
+  
+    <div class="w-full md:w-1/4 lg:w-1/4 px-2 mb-4">
+       <div class="border  text-sm text-grey-dark flex items-center justify-center">
+          <p>full / half / quarter</p>
+       </div>
+    </div>
+   
+ </div>
+    </mat-sidenav-content>
 </mat-sidenav-container>
 <div *ngIf="isMobileView">
 <nx-micro-frontend-trust-bank-bottom-nav-bar></nx-micro-frontend-trust-bank-bottom-nav-bar>
 
 </div>
 <!-- <router-outlet></router-outlet> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

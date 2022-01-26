@@ -11,6 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
+import {LayoutModule} from '@angular/cdk/layout';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -35,6 +36,8 @@ import {BottomNavBarModule} from 'libs/my-lib/src/lib/widgets/bottom-nav-bar/bot
     NoopAnimationsModule ,
     BottomNavBarModule,
     MatDividerModule,
+    LayoutModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent],
