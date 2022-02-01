@@ -1,3 +1,4 @@
+import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BottomNavBarComponent } from './bottom-nav-bar.component';
@@ -13,7 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     CommonModule,
     MatToolbarModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatButtonModule
   ],
   exports:[BottomNavBarComponent]
 })
