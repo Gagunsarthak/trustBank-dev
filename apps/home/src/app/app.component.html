@@ -170,7 +170,9 @@ Responsive side navigation
                         
                     </mat-card>
                    
-                    <div class="w-full p-2 rounded ">
+                    <div class="w-full p-2 rounded " *ngFor="let post of timeLineResult">
+                      
+                        <ws-post-card [post]="post"></ws-post-card>
                         <mat-card class="w-full mt-2">
                             <div class="flex flex-shrink-0 p-4 pb-0">
                                 <a href="#" class="flex-shrink-0 group block">
@@ -425,6 +427,7 @@ Responsive side navigation
                     <!-- <p>full / half / quarter</p> -->
                     <div class="container flex flex-wrap mx-auto">
                         <!-- Centre Div for main posts -->
+                     
                         <div class="w-full p-2 rounded " *ngIf="!isMobileView">
                             <div class="bg-white font-semibold text-center rounded-3xl border shadow-lg p-10">
                                 <img class="mb-3 w-32 h-32 rounded-full shadow-lg mx-auto" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="product designer">
@@ -435,8 +438,11 @@ Responsive side navigation
                               </div>
                               
                         </div>
-                        
-                        <div class="w-full p-2 rounded ">
+                    
+                        <div class="w-full p-2 rounded " *ngFor="let post of timeLineResult">
+                            <ws-post-card [post]="post"></ws-post-card>
+                        </div>
+                        <!-- <div class="w-full p-2 rounded ">
                             <img src="https://ico.org.uk/media/4017813/childrens-code-website-blue.jpg"
                                 alt="image">
                         </div>
@@ -447,7 +453,7 @@ Responsive side navigation
                         <div class="w-full p-2 rounded ">
                             <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
                                 alt="image">
-                        </div>
+                        </div> -->
                        
                     </div>
                    
@@ -479,7 +485,7 @@ Responsive side navigation
                   </div>
             </div>
             
-            <div class="w-full p-2 rounded ">
+            <!-- <div class="w-full p-2 rounded ">
                 <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
                     alt="image">
             </div>
@@ -490,7 +496,7 @@ Responsive side navigation
             <div class="w-full p-2 rounded ">
                 <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=989&q=80"
                     alt="image">
-            </div>
+            </div> -->
            
         </div>
        

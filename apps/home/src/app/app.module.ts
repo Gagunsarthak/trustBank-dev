@@ -19,9 +19,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {TopNavBarModule} from 'libs/my-lib/src/lib/widgets/top-nav-bar/top-nav-bar.module'
 // eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import {BottomNavBarModule} from 'libs/my-lib/src/lib/widgets/bottom-nav-bar/bottom-nav-bar.module'
+import { HttpClientModule } from '@angular/common/http';
+import { PostCardModule } from './widgets/card/post-card/post-card.module';
 // E:\newCloneTrust\trustBank-dev\libs\my-lib\src\lib\top-nav-bar\top-nav-bar.module.ts
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent,],
+  declarations: [AppComponent, NxWelcomeComponent],
   imports: [BrowserModule,MatSliderModule,
     MatListModule,
     ReactiveFormsModule,
@@ -36,7 +38,9 @@ import {BottomNavBarModule} from 'libs/my-lib/src/lib/widgets/bottom-nav-bar/bot
     NoopAnimationsModule ,
     BottomNavBarModule,
     MatDividerModule,
+    HttpClientModule,
     LayoutModule,
+    PostCardModule
  
   ],
   providers: [],
